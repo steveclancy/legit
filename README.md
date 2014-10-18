@@ -4,7 +4,8 @@
 
 ## Getting Started
 
-`rake db:create`
+    rake db:create
+    bin/rails server
 
 Go to http://0.0.0.0:3000
 
