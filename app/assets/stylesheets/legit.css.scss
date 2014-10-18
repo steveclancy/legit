@@ -54,6 +54,7 @@ a
 		&:hover
 		{
 		@include hoverer($hover);
+		background-color:transparent;
 		}
 	
 	}
@@ -73,13 +74,16 @@ strong
 	
 .button
 	{
-	@extend .submit-button;
+	width:150px;
+	height:50px;
+	background-color:$blue;
+	color:white;
+	border:0px;
+	font-weight:$bold;
 	text-align:center;
-	color:white !important;
 	display:block;
-	border:1px solid red;
 	background-image:none;
-	padding-top:16px;
+
 	font-size:em(12);
 	letter-spacing:.04em;
 	
@@ -88,7 +92,54 @@ strong
 		background-color:$hover;
 		background-image:none;
 		
-		}
+		}	
+	}
+	
+.fake-button
+	{	
+	padding-top:16px;
+	color:white !important;
+	display:block;
+	}
+	
+.wide-button
+	{
+	width:250px;
+	float:none;
+	margin:0 auto 20px;
+	}
+
+.small-button
+	{
+	width:80px;
+	height:30px;
+	display:inline-block;
+	color:white !important;
+	padding:6px 0 0 0;
+	font-size:em(14.5) !important;
+	}
+	
+.form-field
+	{
+	width:100%;
+	-webkit-appearance:none;
+	height:50px;
+	box-shadow: none !important;
+	border:1px solid $light;
+	padding:0 0 0 20px;
+	font-size:em(16);
+	color:$med;
+	margin:0 0 30px 0;
+	
+	}
+	
+.form-label
+	{
+	font-size:em(15);
+	color:$dark;
+	font-weight:$bold;
+	display:block;
+	margin:0 0 8px 0;
 	
 	}
 	
@@ -217,27 +268,8 @@ border:1px solid blue;
 	
 .notes
 	{
-	width:100%;
-	-webkit-appearance:none;
-	height:50px;
-	box-shadow: none !important;
-	border:1px solid $light;
-	padding:0 0 0 20px;
-	font-size:em(16);
-	color:$med;
+	@extend .form-field;
 	}
-	
-.submit-button	
-	{
-	width:150px;
-	height:50px;
-	background-color:$blue;
-	color:white;
-	border:0px;
-	font-weight:$bold;
-	float:right;
-	}
-
 
 :root .css3-radios input[type="radio"]
 {
@@ -348,7 +380,6 @@ border:1px solid blue;
 
 .watchers-list-container
 	{
-	border:1px solid green;
 	
 	}
 	
@@ -357,16 +388,51 @@ border:1px solid blue;
 	font-size:em(18);
 	font-weight:$bold;
 	margin:0 0 8px 0;
-	border:1px solid red;
 	text-align:center;
 	
 	}
 	
-.add-new
+.new-watcher-button
 	{
-	@extend .submit-button;
-	text-align:center
+	float:none;
+	width:250px;
+	margin:0 auto 20px;
 	}
 	
+	
+.add-new-head	
+	{
+	@extend .watchers-list-head;
+	
+	}
+	
+	
+	
+.form-field-entries
+	{	
+	
+		li
+		{	
+		}
+
+	}
+	
+	
+.back-link
+	{
+	font-weight:$bold;
+	text-align:center;
+	display:block;
+	margin:0 auto;
+	width:45px;
+	
+	}
 
 	
+.actions	
+	{
+	border:1px solid red;
+	text-align:center;
+	margin:0 0 40px 0 !important;
+	border:1px solid blue;
+	}
