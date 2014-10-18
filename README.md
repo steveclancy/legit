@@ -100,15 +100,32 @@ _TBD_, possibilities:
 
 Possibilities for refining the tweets or improving the sort
 
+### Number of Followers
+
+On the theory that an account which has built trust has more followers.
+
+Available in json data returned from twitter as `followers_count`.
+
+### Proximity
+
+On the theory that tweets that are closer to the event have more
+authority.
+
+Include the `geocode` parameter to specify the latitude, longitude and
+radius. This is documented on the
+[search documentation page](https://dev.twitter.com/rest/reference/get/search/tweets). This
+covers searching within a defined radius, but doesn't seem to provide
+distance. So, we can limit the search by distance but can't easily use
+this to sort.
+
 ### Media inclusion
 
 On the theory that tweets that include an image are more authoritative. 
 
 If the reqeust for tweets has `include_entities` set to true, the data
 for the attached entities are included in the tweet data
-([docs & example](https://dev.twitter.com/overview/api/entities-in-twitter-objects)). Inside
-the entities node of a status in the Twitter API, this data gets
-exposed.
+([docs & example](https://dev.twitter.com/overview/api/entities-in-twitter-objects)). Inside the entities node of a status in the Twitter API, this data
+gets exposed.
 
     "media": [
         {
