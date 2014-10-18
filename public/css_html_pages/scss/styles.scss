@@ -1,0 +1,22 @@
+@import "Bourbon";
+@import "mixins";
+
+
+*
+	{
+	box-sizing:border-box;	
+	}
+
+body
+	{
+	font-family:'Glegoo', helvetica, arial, sans-serif;
+	font-size:1em;
+	font-weight:400;
+	}
+
+strong
+	{
+	font-weight:700;
+	}
+	
+	
