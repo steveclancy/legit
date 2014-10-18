@@ -3,23 +3,21 @@
   <ul class="watchers-list">
     <% @watchers.each do |watcher| %>
       <li class="watcher">
-        <h3><%= link_to watcher.name, watcher %></h3>
-        <p><%= watcher.keywords %></p>
+        <h3 watcher-name><%= link_to watcher.name, watcher %></h3>
+        <p class="watcher-keywords"><%= watcher.keywords %></p>
         
         <div class="actions">
-          <%= link_to 'Edit', edit_watcher_path(watcher), class: 'edit' %>
-          <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete' %>
+          <%= link_to 'Edit', edit_watcher_path(watcher), class: 'edit button small-button' %>
+          <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete button small-button' %>
         </div>
       </li> 
     <% end %>   
   </ul>
   
   <aside class="add-new-container">
-    <h4 class="add-new-head">Add a New Event</h4>
-    <%= link_to 'New Watcher', new_watcher_path,  class: 'button' %>
+    <h2 class="add-new-head">Add a New watcher</h2>
+    <%= link_to 'New Watcher', new_watcher_path,  class: 'button fake-button wide-button' %>
   <aside>
-    <h4><%= link_to 'Add a New Watcher', new_watcher_path %></h4>
-  </aside>
 </section>
 
 
