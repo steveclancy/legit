@@ -112,7 +112,7 @@ h6 {
 .banner {
     padding: 100px 0;
     color: #f8f8f8;
-    background: url(../img/snd-fundraiser.png) no-repeat right;
+  /*   background: url(../img/snd-fundraiser.png) no-repeat right; */
     background-size: cover;
 }
 
