@@ -32,3 +32,46 @@ Upon receiving this request, server:
    (https://dev.twitter.com/rest/reference/get/search/tweets)),
    but with the tweets sorted as defined by our criteria.
 
+### Action API
+
+The ajax call made from the results page when a verifier has decided
+that the tweet is `verified`, `falsified`, or needs verification
+(`tbd`) (but with more details).
+
+Request: `/act` POSTed to the server with json payload. Examples:
+
+Verified:
+
+    {
+        "id": 250075927172759552,
+        "action": "verified",
+        "comment": "Spoke with PR rep from Hammer University.",
+        "user": "Fakey McFakerson"
+    }
+
+Falsified:
+
+    {
+        "id": 250075927172759552,
+        "action": "falsified",
+        "comment": "Twitter user @OnTheScene posted photos disproving",
+        "user": "Fakey McFakerson"
+    }
+
+
+Needs verification:
+
+    {
+        "id": 250075927172759552,
+        "action": "tbd",
+        "comment": "DM'd @OnTheScene requesting phone call or more details",
+        "user": "Fakey McFakerson"
+    }
+
+Response: 
+
+_TBD_, possibilities:
+
+* simple response verifying receipt and valid json format
+* updated json data reflecting the result
+
