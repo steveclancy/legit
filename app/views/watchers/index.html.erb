@@ -3,8 +3,7 @@
   <ul class="watchers-list">
     <% @watchers.each do |watcher| %>
       <li class="watcher">
-        <h3><%= watcher.name %></h3>
-      <h3><%= link_to watcher.name, watcher %></h3>
+        <h3><%= link_to watcher.name, watcher %></h3>
         <p><%= watcher.keywords %></p>
         
         <div class="actions">
@@ -13,8 +12,6 @@
         </div>
       </li> 
     <% end %>   
-      </li>
-    <% end %>
   </ul>
   
   <aside class="add-new-container">
