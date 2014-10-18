@@ -1,10 +1,15 @@
 # legit
 
-...to quit
+http://sndmakeslegit.herokuapp.com
 
 ## Getting Started
 
-`rake db:create`
+Install Ruby 2.1.3 and Bundler.
+
+    bundle install
+    rake db:create
+    rake db:migrate
+    foreman start
 
 Go to http://0.0.0.0:3000
 
