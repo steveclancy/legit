@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Legit</title>
+  
+  <!-- Meta tags which are the same across all pages -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"> 
+
+  <!-- Page-specific meta tags -->
+  <title>Legit: Page Title</title>
   <meta name="description" conent="Legit helps news room teams identify & verify information from social media about breaking news events.">
+
+  <!-- Import Static Assets -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
-<%= yield %>
+  <header class="header">
+    <h1 class="site-name">Legit</h1>
+    <nav class="main-nav-container">
+      <%= yield "contextual_nav" %>
+    </nav>
+  </header>
 
+  <main class="main-content">
+    <%= yield %>
+  </main>
+
+  <footer class="footer">
+    <p>This one fearless website footer speaks up for the voiceless. What happens next will blow your mind.</p>
+  </footer>
 </body>
 </html>

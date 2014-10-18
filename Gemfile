@@ -30,6 +30,9 @@ gem 'spring',        group: :development
 # Heroku support
 gem 'rails_12factor', group: :production
 
+# Bourbon for SCSS goodness
+gem 'bourbon'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

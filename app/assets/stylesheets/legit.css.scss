@@ -1,0 +1,48 @@
+*
+  {
+  box-sizing:border-box;  
+  }
+
+body
+  {
+  font-family:'Glegoo', helvetica, arial, sans-serif;
+  font-size:1em;
+  font-weight:400;
+  }
+
+strong
+  {
+  font-weight:700;
+  }
+  
+.main-content
+  {
+  @include spanner_too (12, 1200, 0, 12);
+  max-width:em(600);  
+  margin:0 auto;
+  }
+  
+.twitter-avatar-container
+  {
+  width:50px;
+  height:50px;
+  border:1px solid red;
+  }
+  
+
+.watchers-list-container
+{
+border:1px solid blue;
+
+}
+
+
+  
+.tweet-stream-single
+  {
+  border:1px solid red;
+  
+  }
+  
+  
+  

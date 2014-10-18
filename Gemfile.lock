@@ -29,6 +29,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     buftok (0.2.0)
     builder (3.2.2)
     coffee-rails (4.0.1)
@@ -149,6 +152,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bourbon
   coffee-rails (~> 4.0.0)
   foreman
   jbuilder (~> 2.0)
