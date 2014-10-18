@@ -10,7 +10,12 @@ class WatchersController < ApplicationController
   # GET /watchers/1
   # GET /watchers/1.json
   def show
+    respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @watcher.tweets }
+    end
   end
+
 
   # GET /watchers/new
   def new
@@ -64,7 +69,7 @@ class WatchersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_watcher
-      @watcher = Watcher.find(params[:id])
+      @watcher = Watcher.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

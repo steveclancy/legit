@@ -37,6 +37,7 @@ gem 'bourbon'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'twitter'
+gem 'friendly_id'
 
 # Use unicorn as the app server
 gem 'unicorn'

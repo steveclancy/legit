@@ -8,10 +8,10 @@ namespace :data do
       config.access_token_secret = "dixLEBjwapLNrmlZEu2amiB8qcZGihvPnLXoN5d15AgsA"
     end
 
-    watcher = Watcher.create(:name => "Marry Me", :keywords => "marry me")
+    watcher = Watcher.create(:name => "SNDMakes", :keywords => "#SNDMakes")
 
     # TODO: max_id, since_id
-    client.search(watcher.keywords, :count => 100).collect do |tweet|
+    client.search(watcher.keywords, :count => 100).take(100).collect do |tweet|
       Tweet.create(:watcher_id => watcher.id, :tweet_id => tweet.id, :fields => tweet.to_h)
     end
 
