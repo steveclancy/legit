@@ -2,6 +2,8 @@
 
 http://sndmakeslegit.herokuapp.com
 
+Legit was created as a hackathon project at #SNDMakes Boston, October 17-19, 2014.  For more about the idea, #SNDMakes hackathons, or the project team, visit the project site at http://steveclancy.github.io/legit/.
+
 ## Getting Started
 
 Install Ruby 2.1.3 and Bundler.
