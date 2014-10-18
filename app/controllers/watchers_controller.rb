@@ -10,7 +10,12 @@ class WatchersController < ApplicationController
   # GET /watchers/1
   # GET /watchers/1.json
   def show
+    respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @watcher.tweets }
+    end
   end
+
 
   # GET /watchers/new
   def new
