@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018155142) do
+ActiveRecord::Schema.define(version: 20141018183928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "tweets", force: true do |t|
+    t.integer  "tweet_id",   limit: 8
+    t.hstore   "fields"
+    t.integer  "watcher_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tweets", ["tweet_id"], name: "index_tweets_on_tweet_id", using: :btree
+  add_index "tweets", ["watcher_id"], name: "index_tweets_on_watcher_id", using: :btree
 
   create_table "watchers", force: true do |t|
     t.string   "name"
