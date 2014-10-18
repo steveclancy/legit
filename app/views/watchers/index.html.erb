@@ -1,10 +1,11 @@
 <section class="watchers-list-container">
-  <h2>Currently watching</h2>
+  <h2 class="watchers-list-head">Currently watching</h2>
   <ul class="watchers-list">
     <% @watchers.each do |watcher| %>
       <li class="watcher">
         <h3><%= watcher.name %></h3>
         <p><%= watcher.keywords %></p>
+        
         <div class="actions">
           <%= link_to 'Edit', edit_watcher_path(watcher), class: 'edit' %>
           <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete' %>
@@ -12,9 +13,10 @@
       </li> 
     <% end %>   
   </ul>
-  <aside>
-    <h4>Add a New Event</h4>
-    <%= link_to 'New Watcher', new_watcher_path %>
+  
+  <aside class="add-new-container">
+    <h4 class="add-new-head">Add a New Event</h4>
+    <%= link_to 'New Watcher', new_watcher_path,  class: 'button' %>
   </aside>
 </section>
 
