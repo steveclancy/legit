@@ -1,27 +1,24 @@
-<h1>Listing watchers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Keywords</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<section class="watchers-list-container">
+  <h2>Currently watching</h2>
+  <ul class="watchers-list">
     <% @watchers.each do |watcher| %>
-      <tr>
-        <td><%= watcher.name %></td>
-        <td><%= watcher.keywords %></td>
-        <td><%= link_to 'Show', watcher %></td>
-        <td><%= link_to 'Edit', edit_watcher_path(watcher) %></td>
-        <td><%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <li class="watcher">
+        <h3><%= watcher.name %></h3>
+        <p><%= watcher.keywords %></p>
+        <div class="actions">
+          <%= link_to 'Edit', edit_watcher_path(watcher), class: 'edit' %>
+          <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete' %>
+        </div>
+      </li> 
+    <% end %>   
+  </ul>
+  <aside>
+    <h4>Add a New Event</h4>
+    <%= link_to 'New Watcher', new_watcher_path %>
+  </aside>
+</section>
 
-<br>
 
-<%= link_to 'New Watcher', new_watcher_path %>
+
+
+
