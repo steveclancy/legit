@@ -82,9 +82,19 @@ _TBD_, possibilities:
 * simple response verifying receipt and valid json format
 * updated json data reflecting the result
 
-###Twitter Media Node
+## Sort/Filter criteria
 
-Inside the entities node of a status in the Twitter API, this data gets exposed
+Possibilities for refining the tweets or improving the sort
+
+### Media inclusion
+
+On the theory that tweets that include an image are more authoritative. 
+
+If the reqeust for tweets has `include_entities` set to true, the data
+for the attached entities are included in the tweet data
+([docs & example](https://dev.twitter.com/overview/api/entities-in-twitter-objects)). Inside
+the entities node of a status in the Twitter API, this data gets
+exposed.
 
     "media": [
         {
