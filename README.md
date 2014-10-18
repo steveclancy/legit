@@ -4,6 +4,20 @@ http://sndmakeslegit.herokuapp.com
 
 Legit was created as a hackathon project at #SNDMakes Boston, October 17-19, 2014.  For more about the idea, #SNDMakes hackathons, or the project team, visit the project site at http://steveclancy.github.io/legit/.
 
+### The Future
+
+- Hoax bot - for false items, tweet at people who retweet this.
+- Different/better sorting criteria
+- Adjustable sorting weights
+- Combining tweets from multiple keywords
+- More social sources (instagram, reddit)
+- Management of rate limiting
+- Outputs:
+    - dashboard for editorial use
+    - quick view for reader use
+    - auto-creation of storify
+
+
 ## Getting Started
 
 Install Ruby 2.1.3 and Bundler.
@@ -82,9 +96,19 @@ _TBD_, possibilities:
 * simple response verifying receipt and valid json format
 * updated json data reflecting the result
 
-###Twitter Media Node
+## Sort/Filter criteria
 
-Inside the entities node of a status in the Twitter API, this data gets exposed
+Possibilities for refining the tweets or improving the sort
+
+### Media inclusion
+
+On the theory that tweets that include an image are more authoritative. 
+
+If the reqeust for tweets has `include_entities` set to true, the data
+for the attached entities are included in the tweet data
+([docs & example](https://dev.twitter.com/overview/api/entities-in-twitter-objects)). Inside
+the entities node of a status in the Twitter API, this data gets
+exposed.
 
     "media": [
         {

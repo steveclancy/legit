@@ -4,6 +4,7 @@
     <% @watchers.each do |watcher| %>
       <li class="watcher">
         <h3><%= watcher.name %></h3>
+      <h3><%= link_to watcher.name, watcher %></h3>
         <p><%= watcher.keywords %></p>
         
         <div class="actions">
@@ -12,11 +13,15 @@
         </div>
       </li> 
     <% end %>   
+      </li>
+    <% end %>
   </ul>
   
   <aside class="add-new-container">
     <h4 class="add-new-head">Add a New Event</h4>
     <%= link_to 'New Watcher', new_watcher_path,  class: 'button' %>
+  <aside>
+    <h4><%= link_to 'Add a New Watcher', new_watcher_path %></h4>
   </aside>
 </section>
 

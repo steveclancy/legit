@@ -10,5 +10,11 @@
   <%= @watcher.keywords %>
 </p>
 
+<ul>
+  <% @watcher.tweets.limit(100).each do |tweet| %>
+    <li>Text: <%= tweet.text %>, Source: <%= tweet.source %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_watcher_path(@watcher) %> |
-<%= link_to 'Back', watchers_path %>
+<%= link_to 'Back', root_path %>
