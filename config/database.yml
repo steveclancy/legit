@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: legit_production
-  username: legit
   password: <%= ENV['LEGIT_DATABASE_PASSWORD'] %>
