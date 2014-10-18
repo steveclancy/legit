@@ -1,0 +1,176 @@
+/* mixins */
+
+
+/* makes a multicolumn responsive box */
+
+@mixin column_width ($number_of_columns, $container_width, $gutter)
+	{
+	$gutter_calc: percentage($gutter / $container_width);
+	$box_calc: percentage(($container_width / $number_of_columns) / $container_width);
+	
+
+	
+	$gutter_subtract: $gutter_calc / $number_of_columns;
+	
+	width: ($box_calc + $gutter_subtract) - $gutter_calc;
+	margin:$gutter_calc $gutter_calc 0 0;
+	
+	box-sizing:border-box;
+	float:left;
+	}
+	
+	
+@mixin spanner ($number_of_columns, $container_width, $gutter, $span)
+	{
+	$gutter_calc: percentage($gutter / $container_width);
+	$box_calc: percentage(($container_width / $number_of_columns) / $container_width);
+	
+
+	
+	$gutter_subtract: $gutter_calc / $number_of_columns;
+	
+	width: (($box_calc + $gutter_subtract) - $gutter_calc) * $span;
+	margin:0 $gutter_calc 0 0;	
+	box-sizing:border-box;
+	float:left;
+	}	
+	
+	
+@mixin spanner_too ($number_of_columns, $container_width, $gutter, $span)
+	{
+	$gutter_calc: percentage($gutter / $container_width);
+	$box_calc: percentage(($container_width / $number_of_columns) / $container_width);
+	
+
+	
+	$gutter_subtract: $gutter_calc / $number_of_columns;
+	
+	width: (($box_calc + $gutter_subtract) - $gutter_calc) * $span;
+	
+	@if $gutter_calc == 0% 
+	 {
+    margin-right:0;
+	} 
+
+	@if $gutter_calc != 0% 
+	 {
+    margin-right:$gutter_calc;
+	} 
+
+	}	
+		
+	
+	
+@mixin marginizer_left ($number_of_columns, $container_width, $gutter, $span)
+	{
+	$gutter_calc: percentage($gutter / $container_width);
+	$box_calc: percentage(($container_width / $number_of_columns) / $container_width);	
+	$gutter_subtract: $gutter_calc / $number_of_columns;
+	
+	margin-left: (($box_calc + $gutter_subtract) - $gutter_calc) * $span;
+	}	
+
+@mixin marginizer_right ($number_of_columns, $container_width, $gutter, $span)
+	{
+	$gutter_calc: percentage($gutter / $container_width);
+	$box_calc: percentage(($container_width / $number_of_columns) / $container_width);	
+	$gutter_subtract: $gutter_calc / $number_of_columns;
+	
+	margin-right: (($box_calc + $gutter_subtract) - $gutter_calc) * $span;
+	}			
+	
+
+@mixin centered_content
+	{
+	margin-left:auto;
+	margin-right:auto; 	
+	}
+	
+
+@mixin circle ($size)
+	{
+	width:$size;
+	height:$size;
+	border-radius:$size / 2;
+    }
+    
+    
+@mixin center ($top_margin,$bottom_margin)
+	{  
+	margin:$top_margin auto $bottom_margin;
+	float:none;
+	}
+	
+@mixin eminator ($size)
+	{  
+	font-size:$size
+	}	
+	
+@mixin trans ($color)
+	{
+	background-color:rgba( $color, 0.2 )
+	
+	}
+
+	
+	
+@mixin hoverer ($hover_color)
+	{
+	color:$hover_color;
+	background-image: -moz-linear-gradient(top, transparent 75%, $hover_color 75%);
+	background-image: -webkit-linear-gradient(top, transparent 75%, $hover_color 75%);
+	background-image: -o-linear-gradient(top, transparent 75%, $hover_color 75%);
+	background-image: linear-gradient(to bottom, transparent 75%, $hover_color 75%);
+	background-size: 2px 2px;
+	background-origin: padding-box;
+	background-position: 0 95%;
+	background-repeat: repeat-x;	
+	}
+	
+	
+$base-font-size: 	16px;
+$base-line-height:  $base-font-size*1.5;
+ 
+// this value may vary for each font
+// unitless value relative to 1em
+$cap-height: 		0.68;
+ 
+ 
+@mixin baseline($font-size, $scale: 2) {
+ 
+	// rhythm unit
+	$rhythm: $base-line-height * $font-size / $scale;
+ 
+	// number of rhythm units that can fit the font-size
+	$lines: ceil(($font-size + 0.001px) / $rhythm);
+ 
+	// calculate the new line-height
+	$line-height: $rhythm * $lines / $font-size;
+ 
+	// use the results
+	font-size: $font-size;
+	line-height: $line-height;
+ 
+	$baseline-distance: ($line-height - $cap-height) / 2;
+ 
+ 
+ 
+	// METHOD 1
+	/////////////////
+ 
+	// this method can relatively move down elements you may not want to
+	// position: relative;
+	// top: $baseline-distance + em;
+ 
+ 
+ 
+	// METHOD 2
+	/////////////////
+ 
+	// if you use this mixin only on elements that have one direction margins
+	// http://csswizardry.com/2012/06/single-direction-margin-declarations/
+	// you can use this method with no worries. 
+	// this method assumes the direction is down and the margin is $base-line-height
+	padding-top: $baseline-distance + em;
+	margin-bottom: $base-line-height - $baseline-distance + em;
+}	
