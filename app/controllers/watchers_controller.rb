@@ -28,6 +28,17 @@ class WatchersController < ApplicationController
 
     respond_to do |format|
       if @watcher.save
+        client = Twitter::REST::Client.new do |config|
+          config.consumer_key        = "1jFn305ISZq4moZsv6mYyGls4"
+          config.consumer_secret     = "i8JvIWmswNqA7c9HIpTHJ1nIxZAGGcWyLaGBxfteQXMkNK4DqK"
+          config.access_token        = "14191779-n4X4Fs1WDx9IlNqjt5WhDYT0oMttRlmBP3ysoUhII"
+          config.access_token_secret = "dixLEBjwapLNrmlZEu2amiB8qcZGihvPnLXoN5d15AgsA"
+        end
+        # TODO: max_id, since_id
+        client.search(@watcher.keywords, :lang => 'en', :count => 100).take(100).collect do |tweet|
+          Tweet.create(:watcher_id => @watcher.id, :tweet_id => tweet.id, :fields => tweet.to_h)
+        end
+
         format.html { redirect_to @watcher, notice: 'Watcher was successfully created.' }
         format.json { render :show, status: :created, location: @watcher }
       else
