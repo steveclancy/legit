@@ -25,13 +25,14 @@
 <p class="back-links"><a class="prev-page" style="display:none" href="#top">Previous</a>
 <a class="next-page" href="#top">Next</a></p>
 <section class="tweets">
+
   <% @watcher.tweets.limit(100).each_with_index do |tweet, index| %>
     <% tweet_user = eval(tweet.fields['user']) %>
-      <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>" data-time="<%= tweet.fields['created_at'].to_time.to_i %>" data-retweets="<%= tweet.retweet_count %>" data-index="<%= index%>" <% if index > 20 %> style="display: none;" <% end %>>
+      <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>" data-time="<%= tweet.fields['created_at'].to_time.to_i %>" data-retweets="<%= tweet.retweet_count %>" data-index="<%= index%>" data-has-media="<%= tweet.has_media? %>" <% if index > 20 %> style="display: none;" <% end %>>
         <div class="tweet-left">
           <blockquote class="twitter-tweet">
             <p><%= tweet.text %></p>
-            &mdash; Twitter API (@<%= tweet_user[:screen_name] %>) <a href="https://twitter.com/<%= tweet_user[:screen_name] %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
+            &mdash; Twitter API (@<%= tweet.screen_name %>) <a href="https://twitter.com/<%= tweet.screen_name %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
           </blockquote>
         </div>
         <ul class="tweet-states">
@@ -72,8 +73,8 @@
 </p>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script>
-	(function ($) {
-	  var page = 0;
+  (function ($) {
+    var page = 0;
     function setAction($this, $thisParent, action) {
       //$this.parents('.tweet-states').hide().before('<p>' + action + ' <a class="edit-state" href="#">Edit</a></p>');
       $this.parents('li').addClass('active-pick').siblings().removeClass('active-pick');
@@ -107,24 +108,24 @@
     
     $(document).ready(function() {
       $('body').on('click', '.tweet-container>.tweet-states a', function (e){
-  			e.preventDefault();
+        e.preventDefault();
         e.stopPropagation();
-  			var $this = $(this),
-  				$thisParent = $this.parents('.tweet-container'),
-  				id = parseInt($thisParent.attr('data-id'),10),
-  				action = $this.attr('data-action');
+        var $this = $(this),
+          $thisParent = $this.parents('.tweet-container'),
+          id = parseInt($thisParent.attr('data-id'),10),
+          action = $this.attr('data-action');
 
-  			$.ajax({
-  				'url': $this.attr('href'),
-  				'type': 'PUT',
-  				'success': function () {
-  					setAction($this, $thisParent, action)
-  				},
-  				'error': function () {
-  					setAction($this, $thisParent, action)
-  				},
-  			});
-  		});
+        $.ajax({
+          'url': $this.attr('href'),
+          'type': 'PUT',
+          'success': function () {
+            setAction($this, $thisParent, action)
+          },
+          'error': function () {
+            setAction($this, $thisParent, action)
+          },
+        });
+      });
       $('body').on('click', '.tweet-container .edit-state', function (e){
         e.preventDefault();
         e.stopPropagation();
@@ -143,5 +144,5 @@
       page--;
       showPage(page);
     })
-	})(jQuery);
+  })(jQuery);
 </script>

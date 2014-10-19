@@ -1,4 +1,4 @@
-@import "Bourbon";
+@import "bourbon";
 @import "mixins";
 
 $body:#444;
@@ -14,7 +14,7 @@ $light: 400;
 
 *
 	{
-	box-sizing:border-box;	
+	box-sizing:border-box;
 	}
 
 body
@@ -23,46 +23,46 @@ body
 	font-size:1em;
 	font-weight:$light;
 	color:$body;
-	
+
 	}
-	
+
 h1, h2, h3
 	{
 	font-weight:$bold;
-	color:$body;	
+	color:$body;
 	}
 
 ul
 	{
 	margin:0px;
 	padding:0px;
-	
+
 	li
 	{
 	list-style-type:none;
 	}
-	
+
 	}
-	
+
 a
 	{
 	color:$blue;
 	@include hoverer($blue);
 	text-decoration:none;
 	transition:color .2s ease-in, background .2s ease-in;
-	
+
 		&:hover
 		{
 		@include hoverer($hover);
 		}
-	
+
 	}
-	
+
 a
 	{
 	img
 		{
-		border:0px;		
+		border:0px;
 		}
 	}
 
@@ -70,33 +70,33 @@ strong
 	{
 	font-weight:700;
 	}
-	
+
 .clearfix
 	{
 	@include clearfix;
 	 }
-	
+
 .main-content
 	{
 	@include spanner_too (12, 1200, 0, 12);
-	max-width:em(600);	
+	max-width:em(600);
 	margin:0 auto;
 	}
-	
+
 .twitter-avatar-container
 	{
 	width:50px;
 	height:50px;
 	border:1px solid red;
-	
-				@media screen and (max-width:em(550)) 
+
+				@media screen and (max-width:em(550))
 				{
 				width:40px;
 				height:40px;
 				}
-	
+
 	}
-	
+
 
 .watchers-list-container
 {
@@ -105,71 +105,71 @@ border:1px solid blue;
 }
 
 /*SINGLE TWEET STYLES */
-	
+
 .tweet-stream-single
 	{
 	border:1px solid red;
 	clear:both;
 	}
-	
-	
-.twitter-avatar-container	
+
+
+.twitter-avatar-container
 	{
 	float:left;
-	margin:0 10px 0 0;	
+	margin:0 10px 0 0;
 	}
 
 .tweet-content
 	{
 	border:1px solid red;
 	display:table-cell;
-	
+
 		h2
 		{
 		font-size:em(16);
 		margin:0 0 8px 0;
-		line-height:100%;	
-		
-			@media screen and (max-width:em(550)) 
+		line-height:100%;
+
+			@media screen and (max-width:em(550))
 				{
 				font-size:em(14);
-				}	
+				}
 		}
 	}
-	
-.tweet-link	
+
+.tweet-link
 	{
 	text-align:right;
 	font-size:em(14);
 	font-weight:$bold;
-	
-				@media screen and (max-width:em(550)) 
-				{
-				font-size:em(14);
-				}		
-	}
 
-.tweet-body	
-	{
-	line-height:155%;
-	
-				@media screen and (max-width:em(550)) 
+				@media screen and (max-width:em(550))
 				{
 				font-size:em(14);
 				}
-	
 	}
-	
-	
+
+.tweet-body
+	{
+	line-height:155%;
+
+				@media screen and (max-width:em(550))
+				{
+				font-size:em(14);
+				}
+
+	}
+
+
 	/*VERIFICATIONS CONTROLS */
-	
+
 .verification-controls
 	{
 	width:100%;
 	border:1px solid gray;
 	@include clearfix;
 	}
-	
+
 .input_radios
 	{
 	width:100%;
@@ -181,7 +181,7 @@ border:1px solid blue;
 		display:inline-block;
 		margin:0px -5px 0 0;
 		}
-	
+
 	}
 
 
@@ -193,7 +193,7 @@ border:1px solid blue;
 	color:$med;
 	text-transform:uppercase;
 	}
-	
+
 .notes
 	{
 	width:100%;
@@ -205,8 +205,8 @@ border:1px solid blue;
 	font-size:em(16);
 	color:$med;
 	}
-	
-.submit-button	
+
+.submit-button
 	{
 	width:150px;
 	height:50px;
@@ -231,12 +231,12 @@ border:1px solid blue;
 	height:100px;
 	display:block;
 	border:1px solid blue;
-	
-	
+
+
 	}
 
-	
-/*		
+
+/*
 :root .css3-radios label,
 :root .css3-radios input[type="radio"] + span,
 :root .css3-radios input[type="radio"] + span::before,
@@ -247,41 +247,41 @@ border:1px solid blue;
     display: inline-block;
     vertical-align: middle;
 }
- 
+
 :root .css3-radios,
 :root .css3-checkboxes
 {
     position: relative;
 }
- 
+
 :root .css3-radios label *,
 :root .css3-checkboxes label *
 {
     cursor: pointer;
 }
- 
+
 :root .css3-radios input[type="radio"],
 {
     opacity: 0;
     position: absolute;
 }
- 
+
 :root .css3-radios input[type="radio"] + span,
 :root .css3-checkboxes input[type="checkbox"] + span
 {
     color: $med;
 }
- 
+
 :root .css3-radios label:hover span::before,
 {
-    box-shadow: 0 0 2px $med; 
+    box-shadow: 0 0 2px $med;
 }
- 
+
 :root .css3-radios label:hover span,
 {
     color: $body;
 }
- 
+
 :root .css3-radios input[type="radio"] + span::before,
 {
     content: "";
@@ -293,28 +293,28 @@ border:1px solid blue;
 	height: 24px;
 	margin: -3px 8px 0 0;
 	background-color:white;
-    
-    			@media screen and (min-width:em(800)) 
+
+    			@media screen and (min-width:em(800))
 				{
 				 width: 20px;
 				height: 20px;
 				margin: -4px 8px 0 0;
 				}
-    
+
 }
- 
+
 :root .css3-radios input[type="radio"]:checked + span::before,
 {
     color: $med;
 }
- 
+
 :root .css3-radios input[type="radio"]:disabled + span,
 {
     cursor: default;
     opacity: .4;
 }
- 
- 
+
+
 :root .css3-radios input[type="radio"]:checked + span::before
 {
     content: "\2022";
@@ -328,4 +328,4 @@ border:1px solid blue;
 
 
 
-	
+
