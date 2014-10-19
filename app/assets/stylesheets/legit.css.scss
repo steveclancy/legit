@@ -356,7 +356,8 @@ strong
 	    .facets {
 	        margin:0;
 	        dt {
-	            color:#0099D2;
+	            color:$med;
+	            font-weight:$bold;
 	        }
 	        dd, dt {
 	            display:inline-block;
@@ -366,7 +367,8 @@ strong
 	            a {
 	            		background-image:none;
 	                color:#00658B;
-	                padding:4px;
+	                padding:3px 8px;
+	                border-radius: 2px;
 	                &:hover {
 	                   background:#eee;
 	                }
