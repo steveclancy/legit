@@ -510,18 +510,14 @@ strong
 	{
 	@extend .button;
 	@extend .small-button;
+	background-color:$med;
 	
-		&:nth-child(2)
+		&:hover
 		{
-		background-color:$med;
-		
-			&:hover
-			{
-			background-color:$hover;
-			
-			}
+		background-color:$hover;
 		
 		}
+	
 	
 	}
 
