@@ -1,4 +1,4 @@
-@import "Bourbon";
+@import "bourbon";
 @import "mixins";
 
 $body:#444;
@@ -14,7 +14,7 @@ $light: 400;
 
 *
 	{
-	box-sizing:border-box;	
+	box-sizing:border-box;
 	}
 
 body
@@ -24,47 +24,47 @@ body
 	font-weight:$light;
 	color:$body;
 	margin:0px;
-	
+
 	}
-	
+
 h1, h2, h3
 	{
 	font-weight:$bold;
-	color:$body;	
+	color:$body;
 	}
 
 ul
 	{
 	margin:0px;
 	padding:0px;
-	
+
 	li
 	{
 	list-style-type:none;
 	}
-	
+
 	}
-	
+
 a
 	{
 	color:$blue;
 	@include hoverer($blue);
 	text-decoration:none;
 	transition:color .2s ease-in, background .2s ease-in;
-	
+
 		&:hover
 		{
 		@include hoverer($hover);
 		background-color:transparent;
 		}
-	
+
 	}
-	
+
 a
 	{
 	img
 		{
-		border:0px;		
+		border:0px;
 		}
 	}
 
@@ -72,7 +72,7 @@ strong
 	{
 	font-weight:700;
 	}
-	
+
 .button
 	{
 	width:150px;
@@ -89,22 +89,22 @@ strong
 
 	font-size:em(12);
 	letter-spacing:.04em;
-	
+
 		&:hover
 		{
 		background-color:$hover;
 		background-image:none;
-		
-		}	
+
+		}
 	}
-	
+
 .fake-button
-	{	
+	{
 	padding-top:16px;
 	color:white !important;
 	display:block;
 	}
-	
+
 .wide-button
 	{
 	width:248px;
@@ -120,19 +120,19 @@ strong
 	padding:16px 0 0 0;
 	font-size:em(14.5) !important;
 	}
-	
+
 .secondary-button
 	{
 	background-color:$med;
-	
+
 		&:hover
 		{
-		background-color:$hover;		
+		background-color:$hover;
 		}
-	
-	
+
+
 	}
-	
+
 .form-field
 	{
 	width:100%;
@@ -144,12 +144,12 @@ strong
 	font-size:em(16);
 	color:$med;
 	margin:0 0 30px 0;
-	-moz-box-shadow: inset 0 0 0 #000000; 
+	-moz-box-shadow: inset 0 0 0 #000000;
 	-webkit-box-shadow: inset 0 0 0 #000000;
 	box-shadow: inset 0 0 0 #000000;
-	
+
 	}
-	
+
 .form-label
 	{
 	font-size:em(16);
@@ -157,35 +157,35 @@ strong
 	font-weight:$bold;
 	display:block;
 	margin:0 0 5px 0;
-	
+
 	}
-	
+
 .clearfix
 	{
 	@include clearfix;
 	 }
-	
+
 .main-content
 	{
 	@include spanner_too (12, 1200, 0, 12);
-	max-width:em(600);	
+	max-width:em(600);
 	margin:0 auto;
 	}
-	
+
 .twitter-avatar-container
 	{
 	width:50px;
 	height:50px;
 	border:1px solid red;
-	
-				@media screen and (max-width:em(550)) 
+
+				@media screen and (max-width:em(550))
 				{
 				width:40px;
 				height:40px;
 				}
-	
+
 	}
-	
+
 
 .watchers-list-container
 {
@@ -193,71 +193,71 @@ strong
 }
 
 /*SINGLE TWEET STYLES */
-	
+
 .tweet-stream-single
 	{
 	border:1px solid red;
 	clear:both;
 	}
-	
-	
-.twitter-avatar-container	
+
+
+.twitter-avatar-container
 	{
 	float:left;
-	margin:0 10px 0 0;	
+	margin:0 10px 0 0;
 	}
 
 .tweet-content
 	{
 	border:1px solid red;
 	display:table-cell;
-	
+
 		h2
 		{
 		font-size:em(16);
 		margin:0 0 8px 0;
-		line-height:100%;	
-		
-			@media screen and (max-width:em(550)) 
+		line-height:100%;
+
+			@media screen and (max-width:em(550))
 				{
 				font-size:em(14);
-				}	
+				}
 		}
 	}
-	
-.tweet-link	
+
+.tweet-link
 	{
 	text-align:right;
 	font-size:em(14);
 	font-weight:$bold;
-	
-				@media screen and (max-width:em(550)) 
-				{
-				font-size:em(14);
-				}		
-	}
 
-.tweet-body	
-	{
-	line-height:155%;
-	
-				@media screen and (max-width:em(550)) 
+				@media screen and (max-width:em(550))
 				{
 				font-size:em(14);
 				}
-	
 	}
-	
-	
+
+.tweet-body
+	{
+	line-height:155%;
+
+				@media screen and (max-width:em(550))
+				{
+				font-size:em(14);
+				}
+
+	}
+
+
 	/*VERIFICATIONS CONTROLS */
-	
+
 .verification-controls
 	{
 	width:100%;
 	border:1px solid gray;
 	@include clearfix;
 	}
-	
+
 .input_radios
 	{
 	width:100%;
@@ -269,7 +269,7 @@ strong
 		display:inline-block;
 		margin:0px -5px 0 0;
 		}
-	
+
 	}
 
 
@@ -281,7 +281,7 @@ strong
 	color:$med;
 	text-transform:uppercase;
 	}
-	
+
 .notes
 	{
 	@extend .form-field;
@@ -294,195 +294,195 @@ strong
 
 .watchers-list-container
 	{
-	
+
 	}
-	
+
 .watchers-list-head
 	{
 	font-size:em(22);
 	font-weight:$bold;
 	margin:0 0 40px 0;
 	text-align:center;
-	
+
 	}
-	
+
 .new-watcher-button
 	{
 	float:none;
 	width:250px;
 	margin:0 auto 20px;
 	}
-	
-	
-.add-new-head	
+
+
+.add-new-head
 	{
 	@extend .watchers-list-head;
 	font-size:em(22);
-	
+
 	}
-	
-	
-	
+
+
+
 .form-field-entries
-	{	
-	
+	{
+
 		li
-		{	
+		{
 		}
 
 	}
-	
-	
+
+
 .back-link
 	{
 	@extend .button;
 	@extend .fake-button;
 	@extend .secondary-button;
 	margin:0 auto;
-	
+
 	}
 
-	
-.actions	
+
+.actions
 	{
 	text-align:center;
 	margin:0 0 40px 0 !important;
 	border-bottom:1px solid $lightg;
 	padding:0 0 30px 0;
 	}
-	
+
 
 
 .tweet-container
 	{
 	max-width:500px;
 	margin:0 auto 40px;
-	
+
 	}
 
-	
+
 .tweet-states
 	{
 	text-align:center;
-	
-	
+
+
 		li
 		{
 		width:50px;
 		height:50px;
-		display:inline-block;	
+		display:inline-block;
 		padding-top:4px;
 		background-color:$lightg;
 		border-radius:2px;
 		transition:background-color .2s ease-in;
-		
+
 			&:hover
 			{
-			background-color:$hover;	
+			background-color:$hover;
 			}
-		
-		
+
+
 		a
 		{
 		background:none;
 		}
-		
+
 		svg
 		{
 		height:37px;
 		}
-		
-		}	
+
+		}
 
 	.active-pick
 	{
-	background-color:$blue;	
-	
+	background-color:$blue;
+
 		&:hover
 		{
-		background-color:$blue;	
+		background-color:$blue;
 		cursor:default;
 		}
-	
+
 	}
 
 
 	}
-		
+
 
 	.thumbsup, .thumbsdown, .maybe
 	{
-	fill:white;	
+	fill:white;
 	height:40px;
 	}
-	
-	
+
+
 	.watcher
 	{
 	}
-	
+
 
 	.watcher-name
 	{
 	font-size:20px;
 	text-align:center;
-	
+
 	}
 
 	.user-icon
 	{
 	display:inline-block;
-	margin:0 8px 0 0;	
+	margin:0 8px 0 0;
 	}
-	
+
 	.user
 	{
 	fill:$hover;
-	
+
 	}
-	
-	
-.watcher-keywords	
+
+
+.watcher-keywords
 	{
 	text-align:center;
 	margin:0 0 40px;
-	
+
 		span
 		{
 		font-weight:$bold;
 		color:$med;
 		text-transform:uppercase;
 		font-size:em(14);
-		
+
 		}
-		
-	
+
+
 	}
-	
-.keywords-list	
+
+.keywords-list
 	{
 	@extend .add-new-head;
 	font-size:em(22);
 	margin-bottom:12px;
 	}
-	
-.keywords	
+
+.keywords
 	{
 	margin:0 0 40px;
 	text-align:center;
-	
+
 	}
-	
-	
+
+
 .show-topper
 	{
 	border-bottom:1px solid $lightg;
 	margin:0 0 40px;
 	padding:0 0 20px;
-	
+
 	}
-		
-		
+
+
 .back-links
 	{
 	text-align:center;
@@ -491,47 +491,47 @@ strong
 	{
 	@extend .button;
 	@extend .small-button;
-	
+
 		&:nth-child(2)
 		{
 		background-color:$med;
-		
+
 			&:hover
 			{
 			background-color:$hover;
-			
+
 			}
-		
+
 		}
-	
+
 	}
 
 	}
-	
+
 .editing-head
 	{
 	@extend .watchers-list-head;
 	}
-	
-	
+
+
 .field_with_errors
 	{
 	width:100%;
 	background-color:transparent;
-	
+
 		.form-field
 		{
-		border:2px solid $hover;	
+		border:2px solid $hover;
 		}
-		
+
 		.form-label
 		{
 		color:$hover;
 		}
-	
+
 	}
-	
-	
+
+
 #error_explanation
 	{
 	width:100%;
@@ -539,7 +539,7 @@ strong
 	padding:0px;
 	background-color:transparent;
 	margin-bottom:20px;
-	
+
 	h2
 	{
 	font-size:em(16);
@@ -548,35 +548,35 @@ strong
 	padding:0px;
 	margin:0 0 12px;
 	}
-	
+
 	}
-	
+
 .errors
 	{
-	
+
 		li
 		{
 		list-style-type:none !important;
 		font-size:em(16) !important;
 		margin:0 0 8px 0 !important;
 		}
-	
+
 	}
-	
+
 
 .header
 	{
 	height:160px;
 	margin:0 0 60px;
-	
+
 		a
 		{
 		color:$hover;
 		background-image:none;
 		}
-	
+
 	}
-	
+
 .site-name
 	{
 	border:1px solid $med;
@@ -586,9 +586,9 @@ strong
 	margin:40px auto;
 	line-height:100%;
 	padding:20px 0 30px;
-	border-radius:3px;	
+	border-radius:3px;
 	}
-	
+
 .footer
 	{
 	width:100%;
@@ -597,60 +597,60 @@ strong
 	margin:80px 0 0 0;
 	padding:40px 0;
 	}
-	
+
 .svg-container
 	{
 	display:none;
-	
+
 	}
-	
-#notice	
+
+#notice
 	{
 	color:$dark;
 	text-align:center;
 	font-size:em(18);
 	margin:0 0 40px;
 	}
-	
+
 .footer-notes
 	{
 	max-width:600px;
 	margin:0 auto 60px;
 	text-align:center;
-	
+
 	}
-	
+
 .footer-header
 	{
 	font-weight:$bold;
 	font-size:em(18);
 	text-align:center;
 	}
-	
+
 .team-list
 	{
 	max-width:600px;
 	text-align:center;
 	margin:0 auto 40px;
-	
+
 	li
 	{
 	@include spanner_too (6, 600, 0, 1);
 	display:inline-block;
 	margin-left:-5px;
 	text-align:center;
-	
+
 		&:nth-child(7)
 		{
 		margin-right:0px;
 		}
-	
+
 	.twitter-icon
 	{
 	width:50px;
 	height:50px;
-	margin:0 auto 5px;	
-	
+	margin:0 auto 5px;
+
 		img
 		{
 		width:100%;
@@ -658,7 +658,7 @@ strong
 		height:50px;
 		}
 	}
-	
+
 	.twitter-name
 	{
 	font-weight:$bold;
@@ -667,10 +667,10 @@ strong
 	margin:0 0 0 0;
 	background-image:none;
 	}
-	
+
 	}
-	
-	
-	
+
+
+
 	}
-	
+
