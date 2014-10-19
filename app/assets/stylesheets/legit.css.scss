@@ -142,7 +142,7 @@ strong
 	border:1px solid $med;
 	padding:0 0 0 20px;
 	font-size:em(16);
-	color:$med;
+	color:$dark;
 	margin:0 0 30px 0;
 	-moz-box-shadow: inset 0 0 0 #000000; 
 	-webkit-box-shadow: inset 0 0 0 #000000;
@@ -441,6 +441,10 @@ strong
 	{
 	font-size:20px;
 	text-align:center;
+	a
+	{
+	background-image:none;
+	}
 	
 	}
 
@@ -461,6 +465,7 @@ strong
 	{
 	text-align:center;
 	margin:0 0 40px;
+	font-size:em(20);
 	
 		span
 		{
@@ -679,7 +684,7 @@ strong
 	{
 	font-weight:$bold;
 	text-align:center;
-	font-size:em(13);
+	font-size:em(12);
 	margin:0 0 0 0;
 	background-image:none;
 	}
