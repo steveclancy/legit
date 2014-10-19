@@ -88,7 +88,7 @@ strong
 	border-radius:2px;
 
 	font-size:em(12);
-	letter-spacing:.04em;
+	letter-spacing:.04em; 
 
 		&:hover
 		{
@@ -187,10 +187,7 @@ strong
 	}
 
 
-.watchers-list-container
-{
 
-}
 
 /*SINGLE TWEET STYLES */
 
@@ -482,7 +479,7 @@ strong
 	display:inline-block;
 	margin:0 8px 0 0;
 	}
-
+ 
 	.user
 	{
 	fill:$hover;
@@ -494,12 +491,10 @@ strong
 	{
 	text-align:center;
 	margin:0 0 40px;
-<<<<<<< HEAD
-	
-=======
+
 	font-size:em(20);
 
->>>>>>> 7dd0417040cf070f3b176873fc351f232605a64f
+
 		span
 		{
 		font-weight:$bold;
@@ -544,7 +539,6 @@ strong
 	{
 	@extend .button;
 	@extend .small-button;
-<<<<<<< HEAD
 	background-color:$med;
 	
 		&:hover
@@ -553,8 +547,7 @@ strong
 		
 		}
 	
-	
-=======
+
 
 		&:nth-child(2)
 		{
@@ -568,7 +561,6 @@ strong
 
 		}
 
->>>>>>> 7dd0417040cf070f3b176873fc351f232605a64f
 	}
 
 	}
