@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+
   <!-- Meta tags which are the same across all pages -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
   <!-- Page-specific meta tags -->
-  <title>Legit: Page Title</title>
+  <title>Legit</title>
   <meta name="description" conent="Legit helps news room teams identify & verify information from social media about breaking news events.">
 
   <!-- Import Static Assets -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href='http://fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
@@ -33,8 +33,78 @@
   </main>
 
   <footer class="footer">
-    <p>This one fearless website footer speaks up for the voiceless. What happens next will blow your mind.</p>
-    
+    <p class="footer-notes">Legit is a project made for <a href="http://www.snd.org/2014/09/tired-of-the-same-old-lousy-cms-come-create-solutions-at-sndmakes/" rel="nofollow">SNDMakes Boston in Oct. 2014.</p>
+
+    <h3 class="footer-header">The team</h3>
+
+<ul class="team-list">
+ <li>
+    <a href="https://twitter.com/stevechiagozie" rel="nofollow">
+    <figure class="twitter-icon">
+    	<img src="https://pbs.twimg.com/profile_images/504004478672986112/mQvYRQs2_400x400.jpeg">
+
+    </figure>
+ 	<p class="twitter-name"> @stevechiagozie</p>
+ 	</a>
+    </li>
+
+
+ <li>
+    <a href="https://twitter.com/dharris" rel="nofollow">
+    <figure class="twitter-icon">
+    	<img src="https://pbs.twimg.com/profile_images/1119498905/framedicon_reasonably_small.jpg">
+
+    </figure>
+ 	<p class="twitter-name"> @dharris</p>
+ 	</a>
+    </li>
+
+
+    <li>
+    <a href="https://twitter.com/steveclancy" rel="nofollow">
+    <figure class="twitter-icon">
+    	<img src="https://pbs.twimg.com/profile_images/2461712292/kkbub8w1xjzojfiq8wmc_400x400.jpeg">
+
+    </figure>
+ 	<p class="twitter-name"> @steveclancy</p>
+ 	</a>
+    </li>
+
+
+ <li>
+    <a href="https://twitter.com/theresourceress" rel="nofollow">
+    <figure class="twitter-icon">
+    	<img src="https://pbs.twimg.com/profile_images/378800000829512827/bd646311692dced1ef7840c8d2739e0d_400x400.jpeg">
+
+    </figure>
+ 	<p class="twitter-name"> @theresourceress</p>
+ 	</a>
+    </li>
+
+
+ <li>
+    <a href="https://twitter.com/seandillingham" rel="nofollow">
+    <figure class="twitter-icon">
+    	<img src="https://pbs.twimg.com/profile_images/434584626384760832/P1DtlivS_400x400.jpeg">
+
+    </figure>
+ 	<p class="twitter-name">@seandillingham</p>
+ 	</a>
+    </li>
+
+ <li>
+    <a href="https://twitter.com/putneydm" rel="nofollow">
+    <figure class="twitter-icon">
+    	<img src="https://pbs.twimg.com/profile_images/510589729583013888/Q_hFpYi1_400x400.jpeg">
+
+    </figure>
+ 	<p class="twitter-name">@putneydm</p>
+ 	</a>
+    </li>
+
+
+    </ul>
+
     <div class="svg-container">
 <svg width="25px" height="25px" viewBox="0 0 25 35">
     <defs></defs>
@@ -64,9 +134,9 @@
         <path d="M19.3736264,16.7168367 C19.3736264,17.73725 19.0560929,18.5429392 18.4210165,19.1339286 C17.78594,19.7249179 16.942084,20.0204082 15.8894231,20.0204082 L4.4842033,20.0204082 C3.43154236,20.0204082 2.58768633,19.7249179 1.95260989,19.1339286 C1.31753345,18.5429392 1,17.73725 1,16.7168367 C1,16.2661542 1.01522421,15.8261076 1.04567308,15.3966837 C1.07612195,14.9672598 1.13701877,14.503829 1.22836538,14.0063776 C1.319712,13.5089261 1.43498099,13.0476212 1.57417582,12.622449 C1.71337066,12.1972768 1.90041091,11.7827401 2.1353022,11.3788265 C2.37019348,10.9749129 2.63987943,10.6305286 2.94436813,10.3456633 C3.24885683,10.0607979 3.62076246,9.83333418 4.06009615,9.66326531 C4.49942985,9.49319643 4.98442958,9.40816327 5.51510989,9.40816327 C5.59340698,9.40816327 5.77609747,9.49957392 6.06318681,9.68239796 C6.35027616,9.865222 6.67433428,10.0693016 7.03537088,10.2946429 C7.39640748,10.5199841 7.866183,10.7240637 8.44471154,10.9068878 C9.02324007,11.0897118 9.60393481,11.1811224 10.1868132,11.1811224 C10.7696916,11.1811224 11.3503863,11.0897118 11.9289148,10.9068878 C12.5074434,10.7240637 12.9772189,10.5199841 13.3382555,10.2946429 C13.6992921,10.0693016 14.0233502,9.865222 14.3104396,9.68239796 C14.5975289,9.49957392 14.7802194,9.40816327 14.8585165,9.40816327 C15.3891968,9.40816327 15.8741965,9.49319643 16.3135302,9.66326531 C16.7528639,9.83333418 17.1247695,10.0607979 17.4292582,10.3456633 C17.7337469,10.6305286 18.0034329,10.9749129 18.2383242,11.3788265 C18.4732155,11.7827401 18.6602557,12.1972768 18.7994505,12.622449 C18.9386454,13.0476212 19.0539144,13.5089261 19.145261,14.0063776 C19.2366076,14.503829 19.2975044,14.9672598 19.3279533,15.3966837 C19.3584022,15.8261076 19.3736264,16.2661542 19.3736264,16.7168367 Z M15.1978022,5.32653061 C15.1978022,6.67857819 14.7084527,7.83290338 13.729739,8.78954082 C12.7510253,9.74617825 11.5700619,10.2244898 10.1868132,10.2244898 C8.80356451,10.2244898 7.62260105,9.74617825 6.64388736,8.78954082 C5.66517368,7.83290338 5.17582418,6.67857819 5.17582418,5.32653061 C5.17582418,3.97448304 5.66517368,2.82015784 6.64388736,1.86352041 C7.62260105,0.906882972 8.80356451,0.428571429 10.1868132,0.428571429 C11.5700619,0.428571429 12.7510253,0.906882972 13.729739,1.86352041 C14.7084527,2.82015784 15.1978022,3.97448304 15.1978022,5.32653061 Z" id="user" class="user" fill="#333333" sketch:type="MSShapeGroup"></path>
     </g>
 </svg>
-    
+
     </div>
-    
+
   </footer>
 </body>
 

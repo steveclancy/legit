@@ -13,54 +13,65 @@
   </p>
 </div>
 
+<section class="filters">
+  <dl class="facets">
+      <dt>Sort:</dt>
+      <dd><a href="#" class="sort recent active">Most Recent</a></dd>
+      <dd><a href="#" class="sort retweets">Most Retweets</a></dd>
+      <dd><a href="#" class="sort media">Has Media</a></dd>
+  </dl>
+</section>
 <a name="top"></a>
 <p class="back-links"><a class="prev-page" style="display:none" href="#top">Previous</a>
 <a class="next-page" href="#top">Next</a></p>
-<% @watcher.tweets.limit(100).each_with_index do |tweet, index| %>
-  <% tweet_user = eval(tweet.fields['user']) %>
-  <div>
-    <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>" data-index="<%= index%>" <% if index > 20 %> style="display: none;" <% end %>>
-      <div class="tweet-left">
-        <blockquote class="twitter-tweet">
-          <p><%= tweet.text %></p>
-          &mdash; Twitter API (@<%= tweet_user[:screen_name] %>) <a href="https://twitter.com/<%= tweet_user[:screen_name] %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
-        </blockquote>
-      </div>
-      <ul class="tweet-states">
-      <% @statuses.each do |status|  %>
-        <% if status.name == 'verified' %>
-        <li<% if tweet.status.present? && tweet.status.name === status.name %> class="active-pick" <% end %>>
-          <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'verify', :data => { :status_id => status.id, :action => status.name }) do %>
-          <svg width="40" height="30">
-            <use x="8" y="8" xlink:href="#thumbsup" />
-          </svg>
+<section class="tweets">
+  <% @watcher.tweets.limit(20).each do |tweet| %>
+    <% tweet_user = eval(tweet.fields['user']) %>
+      <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>" data-time="<%= tweet.fields['created_at'].to_time.to_i %>" data-retweets="<%= tweet.retweet_count %>" data-index="<%= index%>" <% if index > 20 %> style="display: none;" <% end %>>
+        <div class="tweet-left">
+          <blockquote class="twitter-tweet">
+            <p><%= tweet.text %></p>
+            &mdash; Twitter API (@<%= tweet_user[:screen_name] %>) <a href="https://twitter.com/<%= tweet_user[:screen_name] %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
+          </blockquote>
+        </div>
+        <% if tweet.status.present? %>
+          <p><%= tweet.status.name %> <a class="edit-state" href="#">Edit</a></p>
+        <% end %>
+        <ul class="tweet-states">
+        <% @statuses.each do |status|  %>
+          <% if status.name == 'verified' %>
+          <li<% if tweet.status.present? && tweet.status.name == status.name %> class="active-pick" <% end %>>
+            <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'verify', :data => { :status_id => status.id, :action => status.name }) do %>
+            <svg width="40" height="30">
+              <use x="8" y="8" xlink:href="#thumbsup" />
+            </svg>
+            <% end %>
+          </li>
+          <% elsif status.name == 'looking' %>
+          <li<% if tweet.status.present? && tweet.status.name == status.name %> class="active-pick" <% end %>>
+            <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'looking', :data => { :status_id => status.id, :action => status.name }) do %>
+            <svg width="40" height="30">
+              <use x="7" y="10" xlink:href="#maybe" />
+            </svg>
+            <% end %>
+          </li>
+          <% elsif status.name == 'unverified' %>
+          <li<% if tweet.status.present? && tweet.status.name == status.name %> class="active-pick" <% end %>>
+            <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'unverified', :data => { :status_id => status.id, :action => status.name }) do %>
+            <svg width="40" height="30">
+              <use x="8" y="12" xlink:href="#thumbsdown" />
+            </svg>
+            <% end %>
+          </li>
           <% end %>
-        </li>
-        <% elsif status.name == 'looking' %>
-        <li<% if tweet.status.present? && tweet.status.name == status.name %> class="active-pick" <% end %>>
-          <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'looking', :data => { :status_id => status.id, :action => status.name }) do %>
-          <svg width="40" height="30">
-            <use x="7" y="10" xlink:href="#maybe" />
-          </svg>
-          <% end %>
-        </li>
-        <% elsif status.name == 'unverified' %>
-        <li<% if tweet.status.present? && tweet.status.name == status.name %> class="active-pick" <% end %>>
-          <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'unverified', :data => { :status_id => status.id, :action => status.name }) do %>
-          <svg width="40" height="30">
-            <use x="8" y="12" xlink:href="#thumbsdown" />
-          </svg>
-          <% end %>
-        </li>
         <% end %>
       <% end %>
       </ul>
-      
     </div>
-  </div>
+  </section>
 <% end %>
 <p class="back-links">
-  <a class="prev-page" style="display:none" href="#top">Previous</a>
+<a class="prev-page" style="display:none" href="#top">Previous</a>
 <a class="next-page" href="#top">Next</a>
 </p>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -106,7 +117,7 @@
   				$thisParent = $this.parents('.tweet-container'),
   				id = parseInt($thisParent.attr('data-id'),10),
   				action = $this.attr('data-action');
-  				
+
   			$.ajax({
   				'url': $this.attr('href'),
   				'type': 'PUT',
