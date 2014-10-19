@@ -1,5 +1,5 @@
 class WatchersController < ApplicationController
-  before_action :set_watcher, only: [:show, :edit, :update, :destroy]
+  before_action :set_watcher, only: [:edit, :update, :destroy]
 
   # GET /watchers
   # GET /watchers.json
@@ -10,6 +10,7 @@ class WatchersController < ApplicationController
   # GET /watchers/1
   # GET /watchers/1.json
   def show
+    @watcher = Watcher.includes(:tweets).friendly.find(params[:id])
     @statuses = Status.all
     respond_to do |format|
         format.html { render :show, offset: params[:offset]}
