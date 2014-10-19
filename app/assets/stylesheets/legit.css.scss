@@ -594,14 +594,15 @@ strong
 	
 .site-name
 	{
-	border:1px solid $med;
-	max-width:300px;
+	border:1px solid $lightg;
+	max-width:500px;
 	text-align: center;
-	font-size:em(80);
+	font-size:em(100);
 	margin:40px auto;
 	line-height:100%;
-	padding:20px 0 30px;
-	border-radius:3px;	
+	padding:20px 60px 30px;
+	border-radius:3px;
+	box-shadow:2px 1px 1px rgba($med, .6);
 	}
 	
 .footer
