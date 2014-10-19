@@ -24,12 +24,11 @@
 
 <section class="tweets">
   <% @watcher.tweets.limit(20).each do |tweet| %>
-    <% tweet_user = eval(tweet.fields['user']) %>
-      <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>" data-time="<%= tweet.fields['created_at'].to_time.to_i %>" data-retweets="<%= tweet.retweet_count %>">
+      <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>" data-time="<%= tweet.fields['created_at'].to_time.to_i %>" data-retweets="<%= tweet.retweet_count %>" data-has-media="<%= tweet.has_media? %>">
         <div class="tweet-left">
           <blockquote class="twitter-tweet">
             <p><%= tweet.text %></p>
-            &mdash; Twitter API (@<%= tweet_user[:screen_name] %>) <a href="https://twitter.com/<%= tweet_user[:screen_name] %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
+            &mdash; Twitter API (@<%= tweet.screen_name %>) <a href="https://twitter.com/<%= tweet.screen_name %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
           </blockquote>
         </div>
         <% if tweet.status.present? %>
