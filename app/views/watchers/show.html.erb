@@ -17,7 +17,7 @@
   <% tweet_user = eval(tweet.fields['user']) %>
 
   <div>
-    <div class="tweet-container">
+    <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>">
       <div class="tweet-left">
         <blockquote class="twitter-tweet">
           <p><%= tweet.text %></p>
@@ -25,41 +25,76 @@
         </blockquote>
       </div>
       <% if tweet.status.present? %>
-        <p><%= tweet.status.name %></p>
-      <% else %>
-        <ul class="tweet-states">
-        <% @statuses.each do |status| %>
-          <% if status.name == 'verified' %>
-          <li>
-            <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'verify') do %>
-            <svg width="40" height="30">
-              <use x="8" y="8" xlink:href="#thumbsup" />
-            </svg>
-            <% end %>
-          </li>
-          <% elsif status.name == 'looking' %>
-          <li>
-            <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'looking') do %>
-            <svg width="40" height="30">
-              <use x="7" y="10" xlink:href="#maybe" />
-            </svg>
-            <% end %>
-          </li>
-          <% elsif status.name == 'unverified' %>
-          <li>
-            <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'unverified') do %>
-            <svg width="40" height="30">
-              <use x="8" y="12" xlink:href="#thumbsdown" />
-            </svg>
-            <% end %>
-          </li>
-          <% end %>
-        <% end %>
-        </ul>
+        <p><%= tweet.status.name %> <!--a class="edit-state" href="#">Edit</a--></p>
       <% end %>
+      <ul class="tweet-states" <% if tweet.status.present? %> style="display: none;" <% end %>>
+      <% @statuses.each do |status|  %>
+        <% if status.name == 'verified' %>
+        <li>
+          <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'verify', :data => { :status_id => status.id, :action => status.name }) do %>
+          <svg width="40" height="30">
+            <use x="8" y="8" xlink:href="#thumbsup" />
+          </svg>
+          <% end %>
+        </li>
+        <% elsif status.name == 'looking' %>
+        <li>
+          <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'looking', :data => { :status_id => status.id, :action => status.name }) do %>
+          <svg width="40" height="30">
+            <use x="7" y="10" xlink:href="#maybe" />
+          </svg>
+          <% end %>
+        </li>
+        <% elsif status.name == 'unverified' %>
+        <li>
+          <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'unverified', :data => { :status_id => status.id, :action => status.name }) do %>
+          <svg width="40" height="30">
+            <use x="8" y="12" xlink:href="#thumbsdown" />
+          </svg>
+          <% end %>
+        </li>
+        <% end %>
+      <% end %>
+      </ul>
+      
     </div>
   </div>
 <% end %>
 
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+<script>
+	(function ($) {
+	  function setAction($this, $thisParent, action) {
+      $this.parents('.tweet-states').hide().before('<p>' + action + ' <!--a class="edit-state" href="#">Edit</a--></p>');
+      $thisParent.addClass(action);
+    }
+    
+    $(document).ready(function() {
+      $('body').on('click', '.tweet-container>.tweet-states a', function (e){
+  			e.preventDefault();
+        e.stopPropagation();
+  			var $this = $(this),
+  				$thisParent = $this.parents('.tweet-container'),
+  				id = parseInt($thisParent.attr('data-id'),10),
+  				action = $this.attr('data-action');
+  				
+  			$.ajax({
+  				'url': $this.attr('href'),
+  				'type': 'GET',
+  				'success': function () {
+  					setAction($this, $thisParent, action)
+  				},
+  				'error': function () {
+  					setAction($this, $thisParent, action)
+  				},
+  			});
+  		});
+      $('body').on('click', '.tweet-container .edit-state', function (e){
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).parents('.tweet-container').find('.tweet-states').show();
+        $(this).parents('p').remove();
+      });
+    });
+	})(jQuery);
+</script>
