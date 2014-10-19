@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018203802) do
+ActiveRecord::Schema.define(version: 20141019020711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,12 +30,21 @@ ActiveRecord::Schema.define(version: 20141018203802) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "statuses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "statuses", ["name"], name: "index_statuses_on_name", unique: true, using: :btree
+
   create_table "tweets", force: true do |t|
     t.integer  "tweet_id",   limit: 8
     t.hstore   "fields"
     t.integer  "watcher_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status_id"
   end
 
   add_index "tweets", ["tweet_id"], name: "index_tweets_on_tweet_id", using: :btree
