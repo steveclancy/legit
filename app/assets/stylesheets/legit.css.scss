@@ -107,7 +107,7 @@ strong
 	
 .wide-button
 	{
-	width:250px;
+	width:248px;
 	float:none;
 	margin:0 auto 20px;
 	}
@@ -425,13 +425,13 @@ strong
 	.watcher-name
 	{
 	font-size:20px;
-
+	text-align:center;
 	
 	}
 
 	.user-icon
 	{
-	float:left;
+	display:inline-block;
 	margin:0 8px 0 0;	
 	}
 	
@@ -444,6 +444,8 @@ strong
 	
 .watcher-keywords	
 	{
+	text-align:center;
+	margin:0 0 40px;
 	
 		span
 		{
@@ -489,6 +491,19 @@ strong
 	{
 	@extend .button;
 	@extend .small-button;
+	
+		&:nth-child(2)
+		{
+		background-color:$med;
+		
+			&:hover
+			{
+			background-color:$hover;
+			
+			}
+		
+		}
+	
 	}
 
 	}
