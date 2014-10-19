@@ -73,8 +73,8 @@
 </p>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script>
-	(function ($) {
-	  var page = 0;
+  (function ($) {
+    var page = 0;
     function setAction($this, $thisParent, action) {
       //$this.parents('.tweet-states').hide().before('<p>' + action + ' <a class="edit-state" href="#">Edit</a></p>');
       $this.parents('li').addClass('active-pick').siblings().removeClass('active-pick');
@@ -105,27 +105,27 @@
         $('.next-page').show();
       }
     }
-    
+
     $(document).ready(function() {
       $('body').on('click', '.tweet-container>.tweet-states a', function (e){
-  			e.preventDefault();
+        e.preventDefault();
         e.stopPropagation();
-  			var $this = $(this),
-  				$thisParent = $this.parents('.tweet-container'),
-  				id = parseInt($thisParent.attr('data-id'),10),
-  				action = $this.attr('data-action');
+        var $this = $(this),
+          $thisParent = $this.parents('.tweet-container'),
+          id = parseInt($thisParent.attr('data-id'),10),
+          action = $this.attr('data-action');
 
-  			$.ajax({
-  				'url': $this.attr('href'),
-  				'type': 'PUT',
-  				'success': function () {
-  					setAction($this, $thisParent, action)
-  				},
-  				'error': function () {
-  					setAction($this, $thisParent, action)
-  				},
-  			});
-  		});
+        $.ajax({
+          'url': $this.attr('href'),
+          'type': 'PUT',
+          'success': function () {
+            setAction($this, $thisParent, action)
+          },
+          'error': function () {
+            setAction($this, $thisParent, action)
+          },
+        });
+      });
       $('body').on('click', '.tweet-container .edit-state', function (e){
         e.preventDefault();
         e.stopPropagation();
@@ -133,7 +133,7 @@
         $(this).parents('p').remove();
       });
     });
-    
+
     $('body').on('click', '.next-page', function (e) {
       //e.preventDefault();
       page++;
@@ -144,5 +144,5 @@
       page--;
       showPage(page);
     })
-	})(jQuery);
+  })(jQuery);
 </script>

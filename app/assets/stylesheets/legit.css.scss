@@ -88,7 +88,7 @@ strong
 	border-radius:2px;
 
 	font-size:em(12);
-	letter-spacing:.04em;
+	letter-spacing:.04em; 
 
 		&:hover
 		{
@@ -187,10 +187,7 @@ strong
 	}
 
 
-.watchers-list-container
-{
 
-}
 
 /*SINGLE TWEET STYLES */
 
@@ -359,7 +356,8 @@ strong
 	    .facets {
 	        margin:0;
 	        dt {
-	            color:#0099D2;
+	            color:$med;
+	            font-weight:$bold;
 	        }
 	        dd, dt {
 	            display:inline-block;
@@ -369,7 +367,8 @@ strong
 	            a {
 	            		background-image:none;
 	                color:#00658B;
-	                padding:4px;
+	                padding:3px 8px;
+	                border-radius: 2px;
 	                &:hover {
 	                   background:#eee;
 	                }
@@ -482,7 +481,7 @@ strong
 	display:inline-block;
 	margin:0 8px 0 0;
 	}
-
+ 
 	.user
 	{
 	fill:$hover;
@@ -494,7 +493,9 @@ strong
 	{
 	text-align:center;
 	margin:0 0 40px;
+
 	font-size:em(20);
+
 
 		span
 		{
@@ -540,6 +541,15 @@ strong
 	{
 	@extend .button;
 	@extend .small-button;
+	background-color:$med;
+	
+		&:hover
+		{
+		background-color:$hover;
+		
+		}
+	
+
 
 		&:nth-child(2)
 		{
@@ -679,18 +689,18 @@ strong
 
 .team-list
 	{
-	max-width:600px;
+	max-width:650px;
 	text-align:center;
 	margin:0 auto 40px;
 
 	li
 	{
-	@include spanner_too (6, 600, 0, 1);
+	@include spanner_too (7, 700, 0, 1);
 	display:inline-block;
 	margin-left:-5px;
 	text-align:center;
 
-		&:nth-child(7)
+		&:nth-child(8)
 		{
 		margin-right:0px;
 		}

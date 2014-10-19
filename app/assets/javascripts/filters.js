@@ -3,7 +3,6 @@ jQuery(document).ready(function() {
   $(".facets .sort").click(function() {
     $(".facets .sort").removeClass("active");
     $(this).addClass("active");
-    return false;
     if ($(this).attr("class") == "recent") {
       $(".tweets").tsort('.tweet-container',{order:'asc',attr:'time'});
     }
@@ -13,5 +12,7 @@ jQuery(document).ready(function() {
     else if ($(this).attr("class") == "media") {
       $(".tweets").tsort('.tweet-container',{order:'asc',attr:'media'});
     }
+    return false;
+    
   }); 
 });
