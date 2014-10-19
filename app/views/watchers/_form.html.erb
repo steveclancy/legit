@@ -3,7 +3,7 @@
     <div id="error_explanation">
       <h2><%= pluralize(@watcher.errors.count, "error") %> prohibited this watcher from being saved:</h2>
 
-      <ul>
+      <ul class="errors"> 
       <% @watcher.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :keywords %><br>
-    <%= f.text_field :keywords %>
-  </div>
+<div class="search-fields clearfix">	
+	<ul class="form-field-entries">
+  <li>
+    <%= f.label :name, class:'form-label' %>
+    <%= f.text_field :name, class:'form-field' %>
+  </li>
+  <li>
+    <%= f.label :keywords, class:'form-label' %>
+    <%= f.text_field :keywords, class:'form-field' %>
+  </li>
+ 
+ </ul>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class =>'button wide-button'%>
+  </div>
   </div>
 <% end %>
