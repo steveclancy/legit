@@ -21,23 +21,24 @@
       <dd><a href="#" class="sort media">Has Media</a></dd>
   </dl>
 </section>
-
+<a name="top"></a>
+<p class="back-links"><a class="prev-page" style="display:none" href="#top">Previous</a>
+<a class="next-page" href="#top">Next</a></p>
 <section class="tweets">
-  <% @watcher.tweets.limit(20).each do |tweet| %>
-      <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>" data-time="<%= tweet.fields['created_at'].to_time.to_i %>" data-retweets="<%= tweet.retweet_count %>" data-has-media="<%= tweet.has_media? %>">
+
+  <% @watcher.tweets.limit(100).each_with_index do |tweet, index| %>
+    <% tweet_user = eval(tweet.fields['user']) %>
+      <div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>" data-time="<%= tweet.fields['created_at'].to_time.to_i %>" data-retweets="<%= tweet.retweet_count %>" data-index="<%= index%>" data-has-media="<%= tweet.has_media? %>" <% if index > 20 %> style="display: none;" <% end %>>
         <div class="tweet-left">
           <blockquote class="twitter-tweet">
             <p><%= tweet.text %></p>
             &mdash; Twitter API (@<%= tweet.screen_name %>) <a href="https://twitter.com/<%= tweet.screen_name %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
           </blockquote>
         </div>
-        <% if tweet.status.present? %>
-          <p><%= tweet.status.name %> <a class="edit-state" href="#">Edit</a></p>
-        <% end %>
-        <ul class="tweet-states" <% if tweet.status.present? %> style="display: none;" <% end %>>
+        <ul class="tweet-states">
         <% @statuses.each do |status|  %>
           <% if status.name == 'verified' %>
-          <li>
+          <li<% if tweet.status.present? && tweet.status.name == status.name %> class="active-pick" <% end %>>
             <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'verify', :data => { :status_id => status.id, :action => status.name }) do %>
             <svg width="40" height="30">
               <use x="8" y="8" xlink:href="#thumbsup" />
@@ -45,7 +46,7 @@
             <% end %>
           </li>
           <% elsif status.name == 'looking' %>
-          <li>
+          <li<% if tweet.status.present? && tweet.status.name == status.name %> class="active-pick" <% end %>>
             <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'looking', :data => { :status_id => status.id, :action => status.name }) do %>
             <svg width="40" height="30">
               <use x="7" y="10" xlink:href="#maybe" />
@@ -53,29 +54,58 @@
             <% end %>
           </li>
           <% elsif status.name == 'unverified' %>
-          <li>
+          <li<% if tweet.status.present? && tweet.status.name == status.name %> class="active-pick" <% end %>>
             <%= link_to(update_status_path(:id => tweet.id, :status_id => status.id), :method => :put, :class => 'unverified', :data => { :status_id => status.id, :action => status.name }) do %>
             <svg width="40" height="30">
               <use x="8" y="12" xlink:href="#thumbsdown" />
             </svg>
             <% end %>
           </li>
-          <% end %>
         <% end %>
-        </ul>
-
-      </div>
-  <% end %>
-</section>
-
+      <% end %>
+      </ul>
+    </div>
+  </section>
+<% end %>
+<p class="back-links">
+<a class="prev-page" style="display:none" href="#top">Previous</a>
+<a class="next-page" href="#top">Next</a>
+</p>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script>
 	(function ($) {
-	  function setAction($this, $thisParent, action) {
-      $this.parents('.tweet-states').hide().before('<p>' + action + ' <a class="edit-state" href="#">Edit</a></p>');
+	  var page = 0;
+    function setAction($this, $thisParent, action) {
+      //$this.parents('.tweet-states').hide().before('<p>' + action + ' <a class="edit-state" href="#">Edit</a></p>');
+      $this.parents('li').addClass('active-pick').siblings().removeClass('active-pick');
       $thisParent.addClass(action);
     }
 
+    function showPage(thisPage) {
+      var tweetsPerPage = 20,
+        min = thisPage * tweetsPerPage,
+        max = min + tweetsPerPage;
+
+      $('.tweet-container').each(function (i, v) {
+        $thisTweet = $(v),
+          index = parseInt($thisTweet.attr('data-index'), 10);
+        if (index >= min && index < max) {
+          $thisTweet.show();
+        } else {
+          $thisTweet.hide();
+        }
+      });
+
+      if (page == 0) {
+        $('.prev-page').hide();
+      } else if (page >= 4) {
+        $('.next-page').hide();
+      } else {
+        $('.prev-page').show();
+        $('.next-page').show();
+      }
+    }
+    
     $(document).ready(function() {
       $('body').on('click', '.tweet-container>.tweet-states a', function (e){
   			e.preventDefault();
@@ -103,5 +133,16 @@
         $(this).parents('p').remove();
       });
     });
+    
+    $('body').on('click', '.next-page', function (e) {
+      //e.preventDefault();
+      page++;
+      showPage(page);
+    });
+    $('body').on('click', '.prev-page', function (e) {
+      //e.preventDefault();
+      page--;
+      showPage(page);
+    })
 	})(jQuery);
 </script>
