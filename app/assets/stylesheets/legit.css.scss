@@ -287,108 +287,7 @@ strong
 	@extend .form-field;
 	}
 
-:root .css3-radios input[type="radio"]
-{
-    opacity: 0;
-    position: absolute;
-}
 
-
-.radio-button
-	{
-	width:100px;
-	height:100px;
-	display:block;
-	
-	
-	}
-
-	
-/*		
-:root .css3-radios label,
-:root .css3-radios input[type="radio"] + span,
-:root .css3-radios input[type="radio"] + span::before,
-:root .css3-checkboxes label,
-:root .css3-checkboxes input[type="checkbox"] + span,
-:root .css3-checkboxes input[type="checkbox"] + span::before
-{
-    display: inline-block;
-    vertical-align: middle;
-}
- 
-:root .css3-radios,
-:root .css3-checkboxes
-{
-    position: relative;
-}
- 
-:root .css3-radios label *,
-:root .css3-checkboxes label *
-{
-    cursor: pointer;
-}
- 
-:root .css3-radios input[type="radio"],
-{
-    opacity: 0;
-    position: absolute;
-}
- 
-:root .css3-radios input[type="radio"] + span,
-:root .css3-checkboxes input[type="checkbox"] + span
-{
-    color: $med;
-}
- 
-:root .css3-radios label:hover span::before,
-{
-    box-shadow: 0 0 2px $med; 
-}
- 
-:root .css3-radios label:hover span,
-{
-    color: $body;
-}
- 
-:root .css3-radios input[type="radio"] + span::before,
-{
-    content: "";
-    border: solid 1px $med;
-    line-height: 14px;
-    text-align: center;
-    display:inline-block;
-	width: 24px;
-	height: 24px;
-	margin: -3px 8px 0 0;
-	background-color:white;
-    
-    			@media screen and (min-width:em(800)) 
-				{
-				 width: 20px;
-				height: 20px;
-				margin: -4px 8px 0 0;
-				}
-    
-}
- 
-:root .css3-radios input[type="radio"]:checked + span::before,
-{
-    color: $med;
-}
- 
-:root .css3-radios input[type="radio"]:disabled + span,
-{
-    cursor: default;
-    opacity: .4;
-}
- 
- 
-:root .css3-radios input[type="radio"]:checked + span::before
-{
-    content: "\2022";
-    font-size: 24px;
-}
-*/
 
 
 /* WATCHERS */
@@ -400,7 +299,7 @@ strong
 	
 .watchers-list-head
 	{
-	font-size:em(28);
+	font-size:em(22);
 	font-weight:$bold;
 	margin:0 0 40px 0;
 	text-align:center;
