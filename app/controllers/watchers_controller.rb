@@ -4,7 +4,7 @@ class WatchersController < ApplicationController
   # GET /watchers
   # GET /watchers.json
   def index
-    @watchers = Watcher.all
+    @watchers = Watcher.all.order(:name)
   end
 
   # GET /watchers/1
