@@ -4,5 +4,5 @@ class Watcher < ActiveRecord::Base
   validates_presence_of :name, :keywords
   validates_uniqueness_of :name
 
-  has_many :tweets
+  has_many :tweets, -> { order('tweet_id DESC') }
 end
