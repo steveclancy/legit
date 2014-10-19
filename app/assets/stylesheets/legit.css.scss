@@ -352,6 +352,36 @@ strong
 	}
 	
 
+	.filters {
+	    border-bottom:1px solid #eee;
+	    margin-bottom:2em;
+	    padding:1em;
+	    text-align:center;
+	    .facets {
+	        margin:0;
+	        dt {
+	            color:#0099D2;
+	        }
+	        dd, dt {
+	            display:inline-block;
+	            font-size:0.875em;
+	            font-weight:300; 
+	            text-transform:uppercase;
+	            a {
+	            		background-image:none;
+	                color:#00658B;
+	                padding:4px;
+	                &:hover {
+	                   background:#eee;
+	                }
+	                &.active {
+	                	background:#00658B;
+	                	color:#fff;
+	                }
+	            }
+	        }
+	    }
+	}
 
 .tweet-container
 	{
