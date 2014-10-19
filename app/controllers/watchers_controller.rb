@@ -12,7 +12,7 @@ class WatchersController < ApplicationController
   def show
     @statuses = Status.all
     respond_to do |format|
-        format.html { render :show }
+        format.html { render :show, offset: params[:offset]}
         format.json { render json: @watcher.tweets }
     end
   end
