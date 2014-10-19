@@ -689,18 +689,18 @@ strong
 
 .team-list
 	{
-	max-width:600px;
+	max-width:650px;
 	text-align:center;
 	margin:0 auto 40px;
 
 	li
 	{
-	@include spanner_too (6, 600, 0, 1);
+	@include spanner_too (7, 700, 0, 1);
 	display:inline-block;
 	margin-left:-5px;
 	text-align:center;
 
-		&:nth-child(7)
+		&:nth-child(8)
 		{
 		margin-right:0px;
 		}
