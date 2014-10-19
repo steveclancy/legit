@@ -12,11 +12,12 @@
 
 <%= link_to 'Edit', edit_watcher_path(@watcher) %> |
 <%= link_to 'Back', root_path %>
-<% @watcher.tweets.limit(20).each do |tweet| 
+<%
+ @watcher.tweets.limit(20).each do |tweet| 
 
 	tweet_user = eval(tweet.fields['user'])
 	%>
-	<div>
+	<div class="tweet-container" data-id="<%= tweet.fields['id_str'] %>">
 		<div class="tweet-left">
 			<blockquote class="twitter-tweet">
 				<p><%= tweet.text %></p>
@@ -24,11 +25,41 @@
 			</blockquote>
 		</div>
 		<div class="tweet-right">
-			<a href="">Verify</a>
-			<a href="">Looking</a>
-			<a href="">Unverified</a>
+			<a href="/verified" data-action="verified">Verified</a>
+			<a href="/falsified" data-action="falsified">Falsified</a>
+			<a href="/tbd" data-action="tbd">Unverified</a>
 		</div>
 	</div>
 <% end %>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+	(function ($) {
+		function setAction($this, $thisParent, action) {
+			$this.siblings().remove();
+			$thisParent.addClass(action);
+		}
+		$('body').on('click', '.tweet-container>.tweet-right a', function (e){
+			e.preventDefault();
+			var $this = $(this),
+				$thisParent = $this.parents('.tweet-container'),
+				id = parseInt($thisParent.attr('data-id'),10),
+				action = $this.attr('data-action');
+				
+			$.ajax({
+				'url': '/act',
+				'type': 'POST',
+				'data': {
+				    "id": id,
+				    "action": action
+				},
+				'success': function () {
+					setAction($this, $thisParent, action)
+				},
+				'error': function () {
+					setAction($this, $thisParent, action)
+				},
+			});
+		});
 
+	})(jQuery);
+</script>

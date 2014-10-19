@@ -11,7 +11,7 @@ class WatchersController < ApplicationController
   # GET /watchers/1.json
   def show
     respond_to do |format|
-        format.html { render :show }
+        format.html { render :show, offset: params[:offset]}
         format.json { render json: @watcher.tweets }
     end
   end
