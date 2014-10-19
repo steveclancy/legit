@@ -25,7 +25,7 @@
         </blockquote>
       </div>
       <% if tweet.status.present? %>
-        <p><%= tweet.status.name %> <!--a class="edit-state" href="#">Edit</a--></p>
+        <p><%= tweet.status.name %> <a class="edit-state" href="#">Edit</a></p>
       <% end %>
       <ul class="tweet-states" <% if tweet.status.present? %> style="display: none;" <% end %>>
       <% @statuses.each do |status|  %>
@@ -65,7 +65,7 @@
 <script>
 	(function ($) {
 	  function setAction($this, $thisParent, action) {
-      $this.parents('.tweet-states').hide().before('<p>' + action + ' <!--a class="edit-state" href="#">Edit</a--></p>');
+      $this.parents('.tweet-states').hide().before('<p>' + action + ' <a class="edit-state" href="#">Edit</a></p>');
       $thisParent.addClass(action);
     }
     
@@ -80,7 +80,7 @@
   				
   			$.ajax({
   				'url': $this.attr('href'),
-  				'type': 'GET',
+  				'type': 'PUT',
   				'success': function () {
   					setAction($this, $thisParent, action)
   				},
