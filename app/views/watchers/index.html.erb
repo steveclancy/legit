@@ -3,8 +3,8 @@
   <ul class="watchers-list">
     <% @watchers.each do |watcher| %>
       <li class="watcher">
-       	
-        <h3 class="watcher-name"> 
+
+        <h3 class="watcher-name">
         <div class="user-icon">
 			<svg width="20" height="20">
 				 <use x="0" y="0" xlink:href="#user" />
@@ -21,7 +21,6 @@
   </ul>
 
   <aside class="add-new-container">
-    <h2 class="add-new-head">Add a New watcher</h2>
     <%= link_to 'New Watcher', new_watcher_path,  class: 'button fake-button wide-button' %>
   <aside>
 </section>
