@@ -3,25 +3,26 @@
   <ul class="watchers-list">
     <% @watchers.each do |watcher| %>
       <li class="watcher">
-        <h3 watcher-name><%= link_to watcher.name, watcher %></h3>
-        <p class="watcher-keywords"><%= watcher.keywords %></p>
+       	<div class="user-icon">
+			<svg width="20" height="20">
+				 <use x="0" y="0" xlink:href="#user" />
+			</svg>
+    	</div>
+        <h3 class="watcher-name">      
+        <%= link_to watcher.name, watcher %></h3>
+        <p class="watcher-keywords"><span>Keywords</span> <%= watcher.keywords %></p>
         <div class="actions">
           <%= link_to 'Edit', edit_watcher_path(watcher), class: 'edit button small-button' %>
-          <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete button small-button' %>
+          <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button small-button secondary-button' %>
         </div>
       </li>
     <% end %>
   </ul>
 
   <aside class="add-new-container">
-<<<<<<< HEAD
     <h2 class="add-new-head">Add a New watcher</h2>
     <%= link_to 'New Watcher', new_watcher_path,  class: 'button fake-button wide-button' %>
   <aside>
-=======
-    <%= link_to 'New Watcher', new_watcher_path,  class: 'button' %>
-  </aside>
->>>>>>> origin/master
 </section>
 
 

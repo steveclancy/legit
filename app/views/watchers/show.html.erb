@@ -1,34 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @watcher.name %>
-</p>
+<div class="show-topper">
+<h3 class="keywords-list">Name</h3>
+	<p class="keywords"><%= @watcher.name %></p>
 
-<p>
-  <strong>Keywords:</strong>
-  <%= @watcher.keywords %>
-</p>
 
-<%= link_to 'Edit', edit_watcher_path(@watcher) %> |
+  <h3 class="keywords-list">Keywords</h3>
+	<p class="keywords">
+	  <%= @watcher.keywords %>
+	</p>
+
+<p class="back-links">
+<%= link_to 'Edit', edit_watcher_path(@watcher) %> 
 <%= link_to 'Back', root_path %>
+</p>
+</div>	
+
+
 <% @watcher.tweets.limit(20).each do |tweet| 
 
 	tweet_user = eval(tweet.fields['user'])
 	%>
 	<div>
+		<div class="tweet-container">
 		<div class="tweet-left">
 			<blockquote class="twitter-tweet">
 				<p><%= tweet.text %></p>
 				&mdash; Twitter API (@<%= tweet_user[:screen_name] %>) <a href="https://twitter.com/<%= tweet_user[:screen_name] %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
 			</blockquote>
 		</div>
-		<div class="tweet-right">
-			<a href="">Verify</a>
-			<a href="">Looking</a>
-			<a href="">Unverified</a>
+		<ul class="tweet-states">
+			<li><a href="" class="verify">
+			<svg width="40" height="30">
+     		 <use x="8" y="8" xlink:href="#thumbsup" />
+     		 </a>
+    		</svg>
+    		
+			</li>
+			<li class=""><a href="" class="looking">
+			<svg width="40" height="30">
+     		 	<use x="7" y="10" xlink:href="#maybe" />
+    		</svg>
+    		</a>
+			</li>
+			
+			<li><a href="" class="unverified">
+			<svg width="40" height="30">
+     		 <use x="8" y="12" xlink:href="#thumbsdown" />
+    		</svg>
+    		</a>
+			</li>
+		</ul>	
 		</div>
 	</div>
+	</div>	
 <% end %>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
