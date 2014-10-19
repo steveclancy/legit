@@ -669,7 +669,7 @@ strong
 	max-width:300px;
 	text-align: center;
 	font-size:em(80);
-	margin:20px auto;
+	margin:40px auto;
 	line-height:100%;
 	padding:20px 0 30px;
 	border-radius:3px;	
@@ -679,8 +679,9 @@ strong
 	{
 	width:100%;
 	background-color:$lightg;
-	height:200px;
-	margin:80px 0 0 0;	
+	height:auto;
+	margin:80px 0 0 0;
+	padding:40px 0;
 	}
 	
 .svg-container
@@ -695,5 +696,67 @@ strong
 	text-align:center;
 	font-size:em(18);
 	margin:0 0 40px;
+	}
+	
+.footer-notes
+	{
+	max-width:600px;
+	margin:0 auto 60px;
+	text-align:center;
+	
+	}
+	
+.footer-header
+	{
+	font-weight:$bold;
+	font-size:em(18);
+	text-align:center;
+	}
+	
+.team-list
+	{
+	max-width:600px;
+	text-align:center;
+	margin:0 auto 40px;
+	
+	li
+	{
+	@include spanner_too (6, 600, 0, 1);
+	display:inline-block;
+	margin-left:-5px;
+	text-align:center;
+	
+		&:nth-child(7)
+		{
+		margin-right:0px;
+		}
+	
+	.twitter-icon
+	{
+	width:50px;
+	height:50px;
+	margin:0 auto 5px;	
+	
+		img
+		{
+		width:100%;
+		width:50px;
+		height:50px;
+		}
+	}
+	
+	.twitter-name
+	{
+	font-weight:$bold;
+	text-align:center;
+	font-size:em(13);
+	margin:0 0 0 0;
+	background-image:none;
+	}
+	
+	}
+	
+	
+	
 	}
 	
