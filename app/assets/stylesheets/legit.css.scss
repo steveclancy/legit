@@ -396,7 +396,6 @@ strong
 
 	.active-pick
 	{
-	background-color:$blue;	
 	
 		&:hover
 		{
@@ -404,6 +403,22 @@ strong
 		cursor:default;
 		}
 	
+	&:first-child
+		{
+		background-color:#6B8E23;	
+		}
+	
+	
+		&:nth-child(2)
+		{
+		background-color:#FFD700;	
+		}
+		
+		&:nth-child(3)
+		{
+		background-color:#B22222;	
+		}	
+
 	}
 
 
