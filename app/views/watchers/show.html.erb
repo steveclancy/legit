@@ -13,14 +13,14 @@
   </p>
 </div>
 
-<section class="filters">
+<!--section class="filters">
   <dl class="facets">
       <dt>Sort:</dt>
       <dd><a href="#" class="sort recent active">Most Recent</a></dd>
       <dd><a href="#" class="sort retweets">Most Retweets</a></dd>
       <dd><a href="#" class="sort media">Has Media</a></dd>
   </dl>
-</section>
+</section-->
 <a name="top"></a>
 <p class="back-links"><a class="prev-page" style="display:none" href="#top">Previous</a>
 <a class="next-page" href="#top">Next</a></p>
@@ -34,6 +34,12 @@
             <p><%= tweet.text %></p>
             &mdash; Twitter API (@<%= tweet.screen_name %>) <a href="https://twitter.com/<%= tweet.screen_name %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
           </blockquote>
+          <noscript>
+            <blockquote class="twitter-tweet">
+              <p><%= tweet.text %></p>
+              &mdash; Twitter API (@<%= tweet.screen_name %>) <a href="https://twitter.com/<%= tweet.screen_name %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
+            </blockquote>
+          </noscript>
         </div>
         <ul class="tweet-states">
         <% @statuses.each do |status|  %>
@@ -65,8 +71,9 @@
       <% end %>
       </ul>
     </div>
+    <% end %>
   </section>
-<% end %>
+
 <p class="back-links">
 <a class="prev-page" style="display:none" href="#top">Previous</a>
 <a class="next-page" href="#top">Next</a>
