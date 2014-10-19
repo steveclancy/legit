@@ -12,23 +12,27 @@
 
 <%= link_to 'Edit', edit_watcher_path(@watcher) %> |
 <%= link_to 'Back', root_path %>
-<% @watcher.tweets.limit(20).each do |tweet| 
+<% @watcher.tweets.limit(20).each do |tweet|
 
-	tweet_user = eval(tweet.fields['user'])
-	%>
-	<div>
-		<div class="tweet-left">
-			<blockquote class="twitter-tweet">
-				<p><%= tweet.text %></p>
-				&mdash; Twitter API (@<%= tweet_user[:screen_name] %>) <a href="https://twitter.com/<%= tweet_user[:screen_name] %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
-			</blockquote>
-		</div>
-		<div class="tweet-right">
-			<a href="">Verify</a>
-			<a href="">Looking</a>
-			<a href="">Unverified</a>
-		</div>
-	</div>
+  tweet_user = eval(tweet.fields['user'])
+  %>
+  <div>
+    <div class="tweet-left">
+      <blockquote class="twitter-tweet">
+        <p><%= tweet.text %></p>
+        &mdash; Twitter API (@<%= tweet_user[:screen_name] %>) <a href="https://twitter.com/<%= tweet_user[:screen_name] %>/status/<%= tweet.fields['id_str'] %>" data-datetime="<%= tweet.fields['created_at'] %>"><% tweet.fields['user'] %></a>
+      </blockquote>
+    </div>
+    <div class="tweet-right">
+      <% if tweet.status.present? %>
+        <p><%= tweet.status.name %></p>
+      <% else %>
+        <% @statuses.each do |status| %>
+          <%= link_to status.name, update_status_path(:id => tweet.id, :status_id => status.id), :method => :put %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 

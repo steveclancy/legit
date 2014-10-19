@@ -10,6 +10,7 @@ class WatchersController < ApplicationController
   # GET /watchers/1
   # GET /watchers/1.json
   def show
+    @statuses = Status.all
     respond_to do |format|
         format.html { render :show }
         format.json { render json: @watcher.tweets }
